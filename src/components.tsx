@@ -13,8 +13,7 @@ import type { BlogState, DateStyle, Post } from "./types.d.ts";
 const socialAppIcons = new Map([
   ["github.com", IconGithub],
   ["twitter.com", IconTwitter],
-  ["instagram.com", IconInstagram],
-  ["linkedin.com", IconLinkedin],
+  ["loak.studio", IconLoak],
 ]);
 
 interface IndexProps {
@@ -28,7 +27,7 @@ export function Index({ state, posts }: IndexProps) {
     postIndex.push(post);
   }
   postIndex.sort(
-    (a, b) => (b.publishDate?.getTime() ?? 0) - (a.publishDate?.getTime() ?? 0),
+    (a, b) => (b.publishDate?.getTime() ?? 0) - (a.publishDate?.getTime() ?? 0)
   );
 
   return (
@@ -76,7 +75,7 @@ export function Index({ state, posts }: IndexProps) {
                     Icon = IconEmail;
                   } else {
                     const icon = socialAppIcons.get(
-                      url.hostname.replace(/^www\./, ""),
+                      url.hostname.replace(/^www\./, "")
                     );
                     if (icon) {
                       Icon = icon;
@@ -117,13 +116,15 @@ export function Index({ state, posts }: IndexProps) {
   );
 }
 
-function PostCard(
-  { post, dateStyle, lang }: {
-    post: Post;
-    dateStyle?: DateStyle;
-    lang?: string;
-  },
-) {
+function PostCard({
+  post,
+  dateStyle,
+  lang,
+}: {
+  post: Post;
+  dateStyle?: DateStyle;
+  lang?: string;
+}) {
   return (
     <div class="pt-12 first:pt-0">
       <h3 class="text-2xl font-bold">
@@ -133,13 +134,8 @@ function PostCard(
       </h3>
       <Tags tags={post.tags} />
       <p class="text-gray-500/80">
-        {(post.author) &&
-          <span>By {post.author || ""} at{" "}</span>}
-        <PrettyDate
-          date={post.publishDate}
-          dateStyle={dateStyle}
-          lang={lang}
-        />
+        {post.author && <span>By {post.author || ""} at </span>}
+        <PrettyDate date={post.publishDate} dateStyle={dateStyle} lang={lang} />
       </p>
       <p class="mt-3 text-gray-600 dark:text-gray-400">{post.snippet}</p>
       <p class="mt-3">
@@ -198,7 +194,7 @@ export function PostPage({ post, state }: PostPageProps) {
           <Tags tags={post.tags} />
           <p class="mt-1 text-gray-500">
             {(post.author || state.author) && (
-              <span>By {post.author || state.author} at{" "}</span>
+              <span>By {post.author || state.author} at </span>
             )}
             <PrettyDate
               date={post.publishDate}
@@ -228,8 +224,7 @@ function Footer(props: { author?: string }) {
     <footer class="mt-20 pb-16 lt-sm:pb-8 lt-sm:mt-16">
       <p class="flex items-center gap-2.5 text-gray-400/800 dark:text-gray-500/800 text-sm">
         <span>
-          &copy; {new Date().getFullYear()} {props.author} &middot; Powered by
-          {" "}
+          &copy; {new Date().getFullYear()} {props.author} &middot; Powered by{" "}
           <a
             class="inline-flex items-center gap-1 underline hover:text-gray-800 dark:hover:text-gray-200 transition-colors"
             href="https://deno.land/x/blog"
@@ -252,7 +247,9 @@ function Footer(props: { author?: string }) {
 function Tooltip({ children }: { children: string }) {
   return (
     <div
-      className={"absolute top-10 px-3 h-8 !leading-8 bg-black/80 text-white text-sm rounded-md whitespace-nowrap opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity"}
+      className={
+        "absolute top-10 px-3 h-8 !leading-8 bg-black/80 text-white text-sm rounded-md whitespace-nowrap opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity"
+      }
     >
       <span
         className="block absolute text-black/80"
@@ -277,29 +274,29 @@ function Tooltip({ children }: { children: string }) {
   );
 }
 
-function PrettyDate(
-  { date, dateStyle, lang }: {
-    date: Date;
-    dateStyle?: DateStyle;
-    lang?: string;
-  },
-) {
+function PrettyDate({
+  date,
+  dateStyle,
+  lang,
+}: {
+  date: Date;
+  dateStyle?: DateStyle;
+  lang?: string;
+}) {
   const formatted = date.toLocaleDateString(lang ?? "en-US", { dateStyle });
   return <time dateTime={date.toISOString()}>{formatted}</time>;
 }
 
 function Tags({ tags }: { tags?: string[] }) {
-  return tags && tags.length > 0
-    ? (
-      <section class="flex gap-x-2 flex-wrap">
-        {tags?.map((tag) => (
-          <a class="text-bluegray-500 font-bold" href={`/?tag=${tag}`}>
-            #{tag}
-          </a>
-        ))}
-      </section>
-    )
-    : null;
+  return tags && tags.length > 0 ? (
+    <section class="flex gap-x-2 flex-wrap">
+      {tags?.map((tag) => (
+        <a class="text-bluegray-500 font-bold" href={`/?tag=${tag}`}>
+          #{tag}
+        </a>
+      ))}
+    </section>
+  ) : null;
 }
 
 function IconRssFeed() {
@@ -380,34 +377,17 @@ function IconTwitter() {
   );
 }
 
-function IconInstagram() {
+function IconLoak() {
   return (
     <svg
-      className="inline-block w-5 h-5"
-      viewBox="0 0 20 20"
-      fill="none"
+      className="inline-block w-4 h-4"
+      fill="currentColor"
+      width="31"
+      height="26"
+      viewBox="0 0 31 26"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <path
-        d="M10.0005 6.80556C9.36869 6.80556 8.75107 6.99291 8.22575 7.34392C7.70043 7.69493 7.29099 8.19383 7.04921 8.77754C6.80743 9.36125 6.74417 10.0035 6.86742 10.6232C6.99068 11.2429 7.29492 11.8121 7.74168 12.2588C8.18843 12.7056 8.75762 13.0098 9.37728 13.1331C9.99695 13.2563 10.6392 13.1931 11.2229 12.9513C11.8067 12.7095 12.3056 12.3001 12.6566 11.7747C13.0076 11.2494 13.1949 10.6318 13.1949 10C13.1949 9.15278 12.8584 8.34026 12.2593 7.74119C11.6602 7.14211 10.8477 6.80556 10.0005 6.80556V6.80556ZM10.0005 11.5278C9.69832 11.5278 9.40294 11.4382 9.1517 11.2703C8.90046 11.1024 8.70464 10.8638 8.58901 10.5847C8.47337 10.3055 8.44312 9.99831 8.50207 9.70195C8.56102 9.40559 8.70652 9.13336 8.92019 8.9197C9.13385 8.70603 9.40607 8.56053 9.70243 8.50158C9.99879 8.44263 10.306 8.47288 10.5851 8.58852C10.8643 8.70415 11.1029 8.89997 11.2708 9.15121C11.4387 9.40245 11.5283 9.69783 11.5283 10C11.5264 10.4046 11.3649 10.7922 11.0788 11.0783C10.7927 11.3644 10.4051 11.526 10.0005 11.5278ZM13.3338 2.5H6.66716C5.56209 2.5 4.50228 2.93899 3.72088 3.72039C2.93948 4.50179 2.50049 5.5616 2.50049 6.66667V13.3333C2.50049 14.4384 2.93948 15.4982 3.72088 16.2796C4.50228 17.061 5.56209 17.5 6.66716 17.5H13.3338C14.4389 17.5 15.4987 17.061 16.2801 16.2796C17.0615 15.4982 17.5005 14.4384 17.5005 13.3333V6.66667C17.5005 5.5616 17.0615 4.50179 16.2801 3.72039C15.4987 2.93899 14.4389 2.5 13.3338 2.5V2.5ZM15.8338 13.3333C15.8338 13.9964 15.5704 14.6323 15.1016 15.1011C14.6327 15.5699 13.9969 15.8333 13.3338 15.8333H6.66716C6.00411 15.8333 5.36823 15.5699 4.89939 15.1011C4.43055 14.6323 4.16716 13.9964 4.16716 13.3333V6.66667C4.16716 6.00363 4.43055 5.36774 4.89939 4.8989C5.36823 4.43006 6.00411 4.16667 6.66716 4.16667H13.3338C13.9969 4.16667 14.6327 4.43006 15.1016 4.8989C15.5704 5.36774 15.8338 6.00363 15.8338 6.66667V13.3333ZM14.7227 6.38889C14.7227 6.60865 14.6575 6.82347 14.5355 7.00619C14.4134 7.18891 14.2398 7.33132 14.0368 7.41542C13.8338 7.49952 13.6104 7.52152 13.3948 7.47865C13.1793 7.43578 12.9813 7.32995 12.8259 7.17456C12.6705 7.01917 12.5647 6.82119 12.5218 6.60566C12.479 6.39012 12.501 6.16671 12.5851 5.96369C12.6692 5.76066 12.8116 5.58712 12.9943 5.46503C13.177 5.34294 13.3918 5.27778 13.6116 5.27778C13.9063 5.27778 14.1889 5.39484 14.3973 5.60322C14.6056 5.81159 14.7227 6.0942 14.7227 6.38889Z"
-        fill="currentColor"
-      />
-    </svg>
-  );
-}
-
-function IconLinkedin() {
-  return (
-    <svg
-      className="inline-block w-5 h-5"
-      viewBox="0 0 20 20"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M15.8338 2.5C16.2758 2.5 16.6998 2.67559 17.0123 2.98816C17.3249 3.30072 17.5005 3.72464 17.5005 4.16667V15.8333C17.5005 16.2754 17.3249 16.6993 17.0123 17.0118C16.6998 17.3244 16.2758 17.5 15.8338 17.5H4.16715C3.72513 17.5 3.3012 17.3244 2.98864 17.0118C2.67608 16.6993 2.50049 16.2754 2.50049 15.8333V4.16667C2.50049 3.72464 2.67608 3.30072 2.98864 2.98816C3.3012 2.67559 3.72513 2.5 4.16715 2.5H15.8338ZM15.4172 15.4167V11C15.4172 10.2795 15.1309 9.5885 14.6215 9.07903C14.112 8.56955 13.421 8.28333 12.7005 8.28333C11.9922 8.28333 11.1672 8.71667 10.7672 9.36667V8.44167H8.44215V15.4167H10.7672V11.3083C10.7672 10.6667 11.2838 10.1417 11.9255 10.1417C12.2349 10.1417 12.5317 10.2646 12.7504 10.4834C12.9692 10.7022 13.0922 10.9989 13.0922 11.3083V15.4167H15.4172ZM5.73382 7.13333C6.10512 7.13333 6.46122 6.98583 6.72377 6.72328C6.98632 6.46073 7.13382 6.10464 7.13382 5.73333C7.13382 4.95833 6.50882 4.325 5.73382 4.325C5.36031 4.325 5.00209 4.47338 4.73798 4.73749C4.47387 5.0016 4.32549 5.35982 4.32549 5.73333C4.32549 6.50833 4.95882 7.13333 5.73382 7.13333ZM6.89216 15.4167V8.44167H4.58382V15.4167H6.89216Z"
-        fill="currentColor"
-      />
+      <path d="M29.1441 0.303659C26.7901 0.581117 24.4174 0.664431 22.0498 0.552761C20.826 0.498605 19.6058 0.381039 18.3942 0.200536C17.3354 0.050539 16.4988 -0.0673157 15.1723 0.0438427C9.96538 0.483119 6.27501 3.95983 5.26709 5.01383C1.69049 8.76375 1.04264 13.0172 0.730758 15.0583C0.226429 18.4523 0.551603 21.9181 1.67845 25.1589L1.94616 25.929L2.76133 25.9571C3.62871 25.9857 4.50278 26 5.38354 26C6.26163 26 7.14373 25.9853 8.02181 25.9571C12.447 25.8112 14.6677 25.7388 17.3046 24.875C18.6044 24.4491 21.6495 23.4514 24.3601 20.7474C26.9167 18.2028 27.8738 15.46 28.7987 12.8123C29.6955 10.245 29.9512 7.84904 30.1573 5.92185L30.2015 5.50935C30.3447 4.17947 30.4344 2.83084 30.4692 1.50497L30.5 0.13893L29.1441 0.303659ZM27.8483 5.25891L27.8055 5.67408C27.6034 7.57315 27.3732 9.72534 26.566 12.0329C25.6906 14.5386 24.8647 16.9051 22.6923 19.0707C20.3806 21.3755 17.8093 22.2179 16.5724 22.6237C14.2581 23.3818 12.1552 23.4514 7.94819 23.5893C6.52666 23.6349 5.09308 23.6442 3.67823 23.6121C3.64076 23.4876 3.61131 23.3617 3.5765 23.2371C3.73178 22.9411 3.89776 22.6559 4.05972 22.3666C4.55595 21.5132 5.13909 20.7134 5.79983 19.98C9.03777 16.364 13.9797 15.7935 18.5709 16.7658C17.2089 15.8599 15.6497 15.2941 14.024 15.1158C12.3983 14.9375 10.7536 15.152 9.22784 15.7413C10.053 14.9856 10.9214 14.2786 11.8286 13.6239C15.5943 12.2526 19.6207 11.749 23.6078 12.1507C21.3979 10.865 18.7583 10.4459 16.2137 10.7927L18.2215 9.61418C20.3779 8.33251 22.5236 7.03611 24.5836 5.54016C22.1869 6.33548 19.8329 7.25409 17.5308 8.29233C16.3837 8.81063 15.2553 9.34901 14.1162 9.93828C13.7053 10.1539 13.297 10.3856 12.8888 10.6267C14.0193 8.88083 14.7649 6.91396 15.0759 4.85714C13.6649 7.41669 12.1157 9.89753 10.4352 12.2887C9.31682 13.1234 8.28257 14.0653 7.34719 15.1011C7.84309 13.0607 7.99017 10.951 7.78221 8.86152C6.29241 13.3333 4.83608 17.6779 3.29006 22.0974C2.82 19.9041 2.74791 17.6441 3.07723 15.4252C3.37305 13.482 3.92319 9.86462 6.9831 6.65978C7.84512 5.75712 10.9987 2.78396 15.3718 2.41567C16.4319 2.32594 17.0449 2.41567 18.0622 2.55629C19.3443 2.74811 20.6355 2.87283 21.9306 2.92994C23.9683 3.02584 26.0101 2.98557 28.0424 2.80941C27.9983 3.61564 27.9313 4.4433 27.843 5.25757L27.8483 5.25891Z"></path>
     </svg>
   );
 }
