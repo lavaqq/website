@@ -212,8 +212,8 @@ async function watchForChanges(postsDirectory: string) {
 async function loadPost(postsDirectory: string, path: string) {
   const contents = await Deno.readTextFile(path);
   let pathname = "/" + relative(postsDirectory, path);
-  // Remove .md extension.
   pathname = pathname.slice(0, -3);
+  pathname = pathname.replace(" ", "-");
 
   const { content, data: _data } = frontMatter(contents) as {
     data: Record<string, string | string[] | Date>;
@@ -239,9 +239,7 @@ async function loadPost(postsDirectory: string, path: string) {
   const post: Post = {
     title: data.get("title") ?? "Untitled",
     author: data.get("author"),
-    // Note: users can override path of a blog post using
-    // pathname in front matter.
-    pathname: data.get("pathname") ?? pathname,
+    pathname: pathname,
     publishDate: data.get("publish_date")!,
     snippet,
     markdown: content,

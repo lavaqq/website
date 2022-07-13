@@ -44,7 +44,6 @@ export interface BlogState extends BlogSettings {
 
 /** Represents a Post in the Blog. */
 export interface Post {
-  pathname: string;
   markdown: string;
   title: string;
   publishDate: Date;
