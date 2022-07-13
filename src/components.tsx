@@ -30,11 +30,15 @@ export function Index({ state, posts }: IndexProps) {
     (a, b) => (b.publishDate?.getTime() ?? 0) - (a.publishDate?.getTime() ?? 0)
   );
   const publishedPost = postIndex.filter((post) => post.published === true);
-
   return (
     <>
       {state.header || (
-        <header class="w-full h-auto my-8">
+        <header
+          class={[
+            "w-full",
+            publishedPost.length > 0 ? "h-auto my-8" : "h-screen",
+          ].join(" ")}
+        >
           <div class="max-w-screen-sm h-full px-6 mx-auto flex flex-col items-center justify-center">
             {state.avatar && (
               <a
@@ -85,18 +89,20 @@ export function Index({ state, posts }: IndexProps) {
           </div>
         </header>
       )}
-      <div class="max-w-screen-sm px-6 mx-auto">
-        <div class="pt-8 lt-sm:pt-12 border-t-1 border-gray-300/80">
-          {publishedPost.map((post) => (
-            <PostCard
-              post={post}
-              key={post.pathname}
-              dateStyle={state.dateStyle}
-              lang={state.lang}
-            />
-          ))}
+      {publishedPost.length > 0 && (
+        <div class="max-w-screen-sm px-6 mx-auto">
+          <div class="pt-8 lt-sm:pt-12 border-t-1 border-gray-300/80">
+            {publishedPost.map((post) => (
+              <PostCard
+                post={post}
+                key={post.pathname}
+                dateStyle={state.dateStyle}
+                lang={state.lang}
+              />
+            ))}
+          </div>
         </div>
-      </div>
+      )}
     </>
   );
 }
