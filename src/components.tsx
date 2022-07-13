@@ -157,11 +157,11 @@ export function PostPage({ post, state }: PostPageProps) {
   return (
     <Fragment>
       {state.showHeaderOnPostPage && state.header}
-      <div class="max-w-screen-sm px-6 pt-8 mx-auto">
-        <div class="pb-16">
+      <div class="max-w-screen-sm px-6 mt-8 mb-16 mx-auto">
+        <div>
           <a
             href="/"
-            class="inline-flex items-center gap-1 text-sm text-gray-500/80 hover:text-gray-700 transition-colors"
+            class="flex items-center gap-1 text-sm text-gray-500/80 hover:text-gray-700 transition-colors"
             title="Back to Index Page"
           >
             <svg
@@ -177,22 +177,22 @@ export function PostPage({ post, state }: PostPageProps) {
             RETOUR
           </a>
         </div>
-        {post.coverHtml && <img src={post.coverHtml} alt="" />}
+        {post.coverHtml && (
+          <img
+            class="py-8 max-w-screen-sm w-full h-96 object-cover"
+            src={post.coverHtml}
+            alt=""
+          />
+        )}
         <article>
-          <h1 class="text-4xl text-gray-900 dark:text-gray-100 font-bold">
+          <h1
+            class={[
+              "text-4xl text-gray-900 dark:text-gray-100 font-bold",
+              post.coverHtml ? "" : "pt-8",
+            ].join(" ")}
+          >
             {post.title}
           </h1>
-          <Tags tags={post.tags} />
-          <p class="mt-1 text-gray-500">
-            {(post.author || state.author) && (
-              <span>By {post.author || state.author} at </span>
-            )}
-            <PrettyDate
-              date={post.publishDate}
-              dateStyle={state.dateStyle}
-              lang={state.lang}
-            />
-          </p>
           <div
             class="mt-8 markdown-body"
             data-color-mode={state.theme ?? "auto"}
