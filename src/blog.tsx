@@ -222,11 +222,7 @@ async function loadPost(postsDirectory: string, path: string) {
 
   const data = recordGetter(_data);
 
-  let snippet: string | undefined =
-    data.get("snippet") ??
-    data.get("abstract") ??
-    data.get("summary") ??
-    data.get("description");
+  let snippet: string | undefined = data.get("summary");
   if (!snippet) {
     const maybeSnippet = content.split("\n\n")[0];
     if (maybeSnippet) {
@@ -237,16 +233,16 @@ async function loadPost(postsDirectory: string, path: string) {
   }
 
   const post: Post = {
-    title: data.get("title") ?? "Untitled",
+    title: data.get("title"),
     author: data.get("author"),
     pathname: pathname,
-    publishDate: data.get("publish_date")!,
+    publishDate: data.get("date")!,
     snippet,
     markdown: content,
-    coverHtml: data.get("cover_html"),
-    ogImage: data.get("og:image"),
+    coverHtml: data.get("cover"),
+    ogImage: data.get("ogImage") ?? data.get("cover"),
     tags: data.get("tags"),
-    published: data.get("published") ?? true,
+    published: data.get("published"),
   };
   POSTS.set(pathname, post);
   console.log("Load: ", post.pathname);

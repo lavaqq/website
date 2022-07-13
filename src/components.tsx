@@ -177,12 +177,7 @@ export function PostPage({ post, state }: PostPageProps) {
             RETOUR
           </a>
         </div>
-        {post.coverHtml && (
-          <div
-            class="pb-12"
-            dangerouslySetInnerHTML={{ __html: post.coverHtml }}
-          />
-        )}
+        {post.coverHtml && <img src={post.coverHtml} alt="" />}
         <article>
           <h1 class="text-4xl text-gray-900 dark:text-gray-100 font-bold">
             {post.title}
