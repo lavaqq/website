@@ -54,4 +54,5 @@ export interface Post {
   /** An image URL which is used in the OpenGraph og:image tag. */
   ogImage?: string;
   tags?: string[];
+  published?: boolean;
 }

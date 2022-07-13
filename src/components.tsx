@@ -29,6 +29,7 @@ export function Index({ state, posts }: IndexProps) {
   postIndex.sort(
     (a, b) => (b.publishDate?.getTime() ?? 0) - (a.publishDate?.getTime() ?? 0)
   );
+  const publishedPost = postIndex.filter((post) => post.published === true);
 
   return (
     <>
@@ -85,7 +86,7 @@ export function Index({ state, posts }: IndexProps) {
       )}
       <div class="max-w-screen-sm px-6 mx-auto">
         <div class="pt-8 lt-sm:pt-12 border-t-1 border-gray-300/80">
-          {postIndex.map((post) => (
+          {publishedPost.map((post) => (
             <PostCard
               post={post}
               key={post.pathname}

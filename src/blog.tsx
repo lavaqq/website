@@ -123,7 +123,7 @@ function composeMiddlewares(state: BlogState) {
   return (
     req: Request,
     connInfo: ConnInfo,
-    inner: (req: Request, ctx: BlogContext) => Promise<Response>,
+    inner: (req: Request, ctx: BlogContext) => Promise<Response>
   ) => {
     const mws = state.middlewares?.reverse();
 
@@ -154,7 +154,7 @@ function composeMiddlewares(state: BlogState) {
 export async function configureBlog(
   url: string,
   isDev: boolean,
-  settings?: BlogSettings,
+  settings?: BlogSettings
 ): Promise<BlogState> {
   let directory;
 
@@ -181,9 +181,7 @@ async function loadContent(blogDirectory: string, isDev: boolean) {
   const postsDirectory = join(blogDirectory, "posts");
 
   // TODO(@satyarohith): not efficient for large number of posts.
-  for await (
-    const entry of walk(postsDirectory)
-  ) {
+  for await (const entry of walk(postsDirectory)) {
     if (entry.isFile && entry.path.endsWith(".md")) {
       await loadPost(postsDirectory, entry.path);
     }
@@ -224,7 +222,8 @@ async function loadPost(postsDirectory: string, path: string) {
 
   const data = recordGetter(_data);
 
-  let snippet: string | undefined = data.get("snippet") ??
+  let snippet: string | undefined =
+    data.get("snippet") ??
     data.get("abstract") ??
     data.get("summary") ??
     data.get("description");
@@ -249,15 +248,13 @@ async function loadPost(postsDirectory: string, path: string) {
     coverHtml: data.get("cover_html"),
     ogImage: data.get("og:image"),
     tags: data.get("tags"),
+    published: data.get("published") ?? true,
   };
   POSTS.set(pathname, post);
   console.log("Load: ", post.pathname);
 }
 
-export async function handler(
-  req: Request,
-  ctx: BlogContext,
-) {
+export async function handler(req: Request, ctx: BlogContext) {
   const { state: blogState } = ctx;
   const { pathname, searchParams } = new URL(req.url);
   const canonicalUrl = blogState.canonicalUrl || new URL(req.url).origin;
@@ -290,9 +287,7 @@ export async function handler(
     colorScheme: blogState.theme ?? "auto",
     lang: blogState.lang ?? "en",
     scripts: IS_DEV ? [{ src: "/hmr.js" }] : undefined,
-    links: [
-      { href: canonicalUrl, rel: "canonical" },
-    ],
+    links: [{ href: canonicalUrl, rel: "canonical" }],
   };
 
   if (blogState.favicon) {
@@ -308,7 +303,7 @@ export async function handler(
       ...sharedHtmlOptions,
       title: blogState.title ?? "My Blog",
       meta: {
-        "description": blogState.description,
+        description: blogState.description,
         "og:title": blogState.title,
         "og:description": blogState.description,
         "og:image": blogState.ogImage ?? blogState.cover,
@@ -317,14 +312,9 @@ export async function handler(
         "twitter:image": blogState.ogImage ?? blogState.cover,
         "twitter:card": blogState.ogImage ? "summary_large_image" : undefined,
       },
-      styles: [
-        ...(blogState.style ? [blogState.style] : []),
-      ],
+      styles: [...(blogState.style ? [blogState.style] : [])],
       body: (
-        <Index
-          state={blogState}
-          posts={filterPosts(POSTS, searchParams)}
-        />
+        <Index state={blogState} posts={filterPosts(POSTS, searchParams)} />
       ),
     });
   }
@@ -335,7 +325,7 @@ export async function handler(
       ...sharedHtmlOptions,
       title: post.title,
       meta: {
-        "description": post.snippet,
+        description: post.snippet,
         "og:title": post.title,
         "og:description": post.snippet,
         "og:image": post.ogImage,
@@ -371,7 +361,7 @@ export async function handler(
 function serveRSS(
   req: Request,
   state: BlogState,
-  posts: Map<string, Post>,
+  posts: Map<string, Post>
 ): Response {
   const url = state.canonicalUrl
     ? new URL(state.canonicalUrl)
@@ -426,14 +416,14 @@ export function ga(gaKey: string): BlogMiddleware {
 
   return async function (
     request: Request,
-    ctx: BlogContext,
+    ctx: BlogContext
   ): Promise<Response> {
     let err: undefined | Error;
     let res: undefined | Response;
 
     const start = performance.now();
     try {
-      res = await ctx.next() as Response;
+      res = (await ctx.next()) as Response;
     } catch (e) {
       err = e;
       res = new Response("Internal server error", {
@@ -467,7 +457,7 @@ export function redirects(redirectMap: Record<string, string>): BlogMiddleware {
       return new Response(null, {
         status: 307,
         headers: {
-          "location": maybeRedirect,
+          location: maybeRedirect,
         },
       });
     }
@@ -476,16 +466,13 @@ export function redirects(redirectMap: Record<string, string>): BlogMiddleware {
   };
 }
 
-function filterPosts(
-  posts: Map<string, Post>,
-  searchParams: URLSearchParams,
-) {
+function filterPosts(posts: Map<string, Post>, searchParams: URLSearchParams) {
   const tag = searchParams.get("tag");
   if (!tag) {
     return posts;
   }
   return new Map(
-    Array.from(posts.entries()).filter(([, p]) => p.tags?.includes(tag)),
+    Array.from(posts.entries()).filter(([, p]) => p.tags?.includes(tag))
   );
 }
 
