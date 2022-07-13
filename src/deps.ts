@@ -14,13 +14,7 @@ export {
 } from "https://deno.land/std@0.145.0/http/mod.ts";
 
 export * as gfm from "https://deno.land/x/gfm@0.1.22/mod.ts";
-export {
-  Fragment,
-  h,
-  html,
-  type HtmlOptions,
-  type VNode,
-} from "https://deno.land/x/htm@0.0.10/mod.tsx";
+export { Fragment, h, html, type HtmlOptions, type VNode } from "./mod.tsx";
 import { UnoCSS } from "https://deno.land/x/htm@0.0.10/plugins.ts";
 export { parse as frontMatter } from "https://deno.land/x/frontmatter@v0.1.4/mod.ts";
 export {
@@ -36,6 +30,7 @@ import "https://esm.sh/prismjs@1.28.0/components/prism-c?no-check";
 
 export { UnoCSS };
 export type UnoConfig = typeof UnoCSS extends (
-  arg: infer P | undefined,
-) => unknown ? P
+  arg: infer P | undefined
+) => unknown
+  ? P
   : never;
