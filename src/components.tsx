@@ -33,36 +33,23 @@ export function Index({ state, posts }: IndexProps) {
   return (
     <>
       {state.header || (
-        <header
-          class="w-full h-90 lt-sm:h-80 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: state.cover ? `url(${state.cover})` : undefined,
-          }}
-        >
+        <header class="w-full h-auto my-8">
           <div class="max-w-screen-sm h-full px-6 mx-auto flex flex-col items-center justify-center">
             {state.avatar && (
               <a
                 href="/"
                 class={[
-                  "bg-cover bg-center bg-no-repeat w-25 h-25 border-4 border-white",
-                  state.avatarClass ?? "rounded-full",
-                ]
-                  .filter(Boolean)
-                  .join(" ")}
+                  "bg-cover bg-center bg-no-repeat w-30 h-30",
+                  state.avatarClass,
+                ].join(" ")}
                 style={{ backgroundImage: `url(${state.avatar})` }}
               />
             )}
-            <h1
-              class="mt-3 text-4xl text-gray-900 dark:text-gray-100 font-bold"
-              style={{ color: state.coverTextColor }}
-            >
-              {state.title ?? "My Blog"}
+            <h1 class="mt-3 text-4xl text-gray-900 dark:text-gray-100 font-bold">
+              {state.title}
             </h1>
             {state.description && (
-              <p
-                class="text-lg text-gray-600 dark:text-gray-400"
-                style={{ color: state.coverTextColor }}
-              >
+              <p class="text-lg text-gray-600 dark:text-gray-400">
                 {state.description}
               </p>
             )}
@@ -81,7 +68,6 @@ export function Index({ state, posts }: IndexProps) {
                       Icon = icon;
                     }
                   }
-
                   return (
                     <a
                       class="relative flex items-center justify-center w-8 h-8 rounded-full bg-gray-600/10 dark:bg-gray-400/10 text-gray-700 dark:text-gray-400 hover:bg-gray-600/15 dark:hover:bg-gray-400/15 hover:text-black dark:hover:text-white transition-colors group"
@@ -97,9 +83,8 @@ export function Index({ state, posts }: IndexProps) {
           </div>
         </header>
       )}
-
       <div class="max-w-screen-sm px-6 mx-auto">
-        <div class="pt-16 lt-sm:pt-12 border-t-1 border-gray-300/80">
+        <div class="pt-8 lt-sm:pt-12 border-t-1 border-gray-300/80">
           {postIndex.map((post) => (
             <PostCard
               post={post}
@@ -109,8 +94,6 @@ export function Index({ state, posts }: IndexProps) {
             />
           ))}
         </div>
-
-        {state.footer || <Footer author={state.author} />}
       </div>
     </>
   );
@@ -126,7 +109,7 @@ function PostCard({
   lang?: string;
 }) {
   return (
-    <div class="pt-12 first:pt-0">
+    <div class="pt-12 first:pt-0 flex flex-col gap-y-2">
       <h3 class="text-2xl font-bold">
         <a class="" href={post.pathname}>
           {post.title}
@@ -137,14 +120,14 @@ function PostCard({
         {post.author && <span>By {post.author || ""} at </span>}
         <PrettyDate date={post.publishDate} dateStyle={dateStyle} lang={lang} />
       </p>
-      <p class="mt-3 text-gray-600 dark:text-gray-400">{post.snippet}</p>
-      <p class="mt-3">
+      <p class="text-gray-600 dark:text-gray-400">{post.snippet}</p>
+      <p>
         <a
           class="leading-tight text-gray-900 dark:text-gray-100 inline-block border-b-1 border-gray-600 hover:text-gray-500 hover:border-gray-500 transition-colors"
           href={post.pathname}
           title={`Read "${post.title}"`}
         >
-          Read More
+          Lire l'article
         </a>
       </p>
     </div>
@@ -178,7 +161,7 @@ export function PostPage({ post, state }: PostPageProps) {
                 fill="currentColor"
               />
             </svg>
-            INDEX
+            RETOUR
           </a>
         </div>
         {post.coverHtml && (
@@ -210,37 +193,9 @@ export function PostPage({ post, state }: PostPageProps) {
             dangerouslySetInnerHTML={{ __html: html }}
           />
         </article>
-
         {state.section}
-
-        {state.footer || <Footer author={state.author} />}
       </div>
     </Fragment>
-  );
-}
-
-function Footer(props: { author?: string }) {
-  return (
-    <footer class="mt-20 pb-16 lt-sm:pb-8 lt-sm:mt-16">
-      <p class="flex items-center gap-2.5 text-gray-400/800 dark:text-gray-500/800 text-sm">
-        <span>
-          &copy; {new Date().getFullYear()} {props.author} &middot; Powered by{" "}
-          <a
-            class="inline-flex items-center gap-1 underline hover:text-gray-800 dark:hover:text-gray-200 transition-colors"
-            href="https://deno.land/x/blog"
-          >
-            Deno Blog
-          </a>
-        </span>
-        <a
-          href="/feed"
-          class="inline-flex items-center gap-1 hover:text-gray-800 dark:hover:text-gray-200 transition-colors"
-          title="Atom Feed"
-        >
-          <IconRssFeed /> RSS
-        </a>
-      </p>
-    </footer>
   );
 }
 
@@ -289,28 +244,14 @@ function PrettyDate({
 
 function Tags({ tags }: { tags?: string[] }) {
   return tags && tags.length > 0 ? (
-    <section class="flex gap-x-2 flex-wrap">
+    <section class="flex gap-x-1">
       {tags?.map((tag) => (
-        <a class="text-bluegray-500 font-bold" href={`/?tag=${tag}`}>
-          #{tag}
-        </a>
+        <span class="inline-flex items-center px-1 py-0.5 text-sm justify-center bg-gray-600/10 rounded-xl text-gray-600 font-bold">
+          <a href={`/?tag=${tag}`}>{tag}</a>
+        </span>
       ))}
     </section>
   ) : null;
-}
-
-function IconRssFeed() {
-  return (
-    <svg
-      class="inline-block w-4 h-4"
-      viewBox="0 0 20 20"
-      fill="currentColor"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path d="M5 3a1 1 0 000 2c5.523 0 10 4.477 10 10a1 1 0 102 0C17 8.373 11.627 3 5 3z" />
-      <path d="M4 9a1 1 0 011-1 7 7 0 017 7 1 1 0 11-2 0 5 5 0 00-5-5 1 1 0 01-1-1zM3 15a2 2 0 114 0 2 2 0 01-4 0z" />
-    </svg>
-  );
 }
 
 function IconEmail() {
