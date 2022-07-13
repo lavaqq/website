@@ -90,7 +90,12 @@ export function Index({ state, posts }: IndexProps) {
         </header>
       )}
       {publishedPost.length > 0 && (
-        <div class="max-w-screen-sm px-6 mx-auto">
+        <div
+          class={[
+            "max-w-screen-sm px-6 mx-auto",
+            publishedPost.length > 1 ? "mb-8" : "mb-0",
+          ].join(" ")}
+        >
           <div class="pt-8 lt-sm:pt-12 border-t-1 border-gray-300/80">
             {publishedPost.map((post) => (
               <PostCard
