@@ -42,7 +42,6 @@ export interface BlogState extends BlogSettings {
   directory: string;
 }
 
-/** Represents a Post in the Blog. */
 export interface Post {
   markdown: string;
   title: string;
@@ -51,7 +50,6 @@ export interface Post {
   snippet?: string;
   coverHtml?: string;
   coverAlt?: string;
-  /** An image URL which is used in the OpenGraph og:image tag. */
   ogImage?: string;
   tags?: string[];
   published?: boolean;

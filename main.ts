@@ -14,7 +14,6 @@ blog({
   lang: "fr",
   timezone: "fr-BE",
   description: `Développeur web fullstack (PHP & JS) à Tournai, Belgique.`,
-
   middlewares: [
     redirects({
       // ...

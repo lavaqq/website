@@ -17,12 +17,7 @@ export * as gfm from "https://deno.land/x/gfm@0.1.22/mod.ts";
 export { Fragment, h, html, type HtmlOptions, type VNode } from "./mod.tsx";
 import { UnoCSS } from "https://deno.land/x/htm@0.0.10/plugins.ts";
 export { parse as frontMatter } from "https://deno.land/x/frontmatter@v0.1.4/mod.ts";
-export {
-  createReporter,
-  type Reporter as GaReporter,
-} from "https://deno.land/x/g_a@0.1.2/mod.ts";
 export { default as callsites } from "https://raw.githubusercontent.com/kt3k/callsites/v1.0.0/mod.ts";
-export { Feed, type Item as FeedItem } from "https://esm.sh/feed@4.2.2";
 export { default as removeMarkdown } from "https://esm.sh/remove-markdown@0.5.0";
 
 // Add syntax highlighting support for C by default

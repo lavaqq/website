@@ -138,7 +138,7 @@ function PostCard({
         <a
           class="leading-tight text-gray-900 dark:text-gray-100 inline-block border-b-1 border-gray-600 hover:text-gray-500 hover:border-gray-500 transition-colors"
           href={post.pathname}
-          title={`Lire "${post.title}"`}
+          title={`Lire ${post.title}`}
         >
           Lire l'article
         </a>
@@ -162,7 +162,7 @@ export function PostPage({ post, state }: PostPageProps) {
           <a
             href="/"
             class="flex items-center gap-1 text-sm text-gray-500/80 hover:text-gray-700 transition-colors"
-            title="Back to Index Page"
+            title="Retour à la page d'accueil"
           >
             <svg
               className="inline-block w-5 h-5"
