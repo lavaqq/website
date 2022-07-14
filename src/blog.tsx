@@ -240,6 +240,7 @@ async function loadPost(postsDirectory: string, path: string) {
     snippet,
     markdown: content,
     coverHtml: data.get("cover"),
+    coverAlt: data.get("coverAlt") ?? "",
     ogImage: data.get("ogImage") ?? data.get("cover"),
     tags: data.get("tags"),
     published: data.get("published"),

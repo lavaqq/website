@@ -138,7 +138,7 @@ function PostCard({
         <a
           class="leading-tight text-gray-900 dark:text-gray-100 inline-block border-b-1 border-gray-600 hover:text-gray-500 hover:border-gray-500 transition-colors"
           href={post.pathname}
-          title={`Read "${post.title}"`}
+          title={`Lire "${post.title}"`}
         >
           Lire l'article
         </a>
@@ -181,7 +181,7 @@ export function PostPage({ post, state }: PostPageProps) {
           <img
             class="py-8 max-w-screen-sm w-full h-96 object-cover"
             src={post.coverHtml}
-            alt=""
+            alt={post.coverAlt}
           />
         )}
         <article>

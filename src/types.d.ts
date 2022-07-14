@@ -46,10 +46,11 @@ export interface BlogState extends BlogSettings {
 export interface Post {
   markdown: string;
   title: string;
-  publishDate: Date;
+  publishDate: DateStyle;
   author?: string;
   snippet?: string;
   coverHtml?: string;
+  coverAlt?: string;
   /** An image URL which is used in the OpenGraph og:image tag. */
   ogImage?: string;
   tags?: string[];
