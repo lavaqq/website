@@ -1,11 +1,11 @@
 ---
 title: Connecter ses Airpods à un PC sous ArchLinux
-date: 2022-07-12
+summary: ""
+date: 2022-10-04
 cover: ./img/airpods.webp
-tags: [arch, linux, tips, airpods]
+tags: [Arch, Linux]
 published: true
 ---
-# Connecter ses Airpods à un PC sous ArchLinux
 Voici les commandes pour connecter ses Airpods à un PC sous ArchLinux
 ```bash
 pacman -S bluetoothctl pulseaudio pavucontrol pulseaudio-alsa pulseaudio-bluetooth bluez-utils
