@@ -36,7 +36,7 @@ export function Index({ state, posts }: IndexProps) {
         <header
           class={[
             "w-full",
-            publishedPost.length > 0 ? "h-auto my-8" : "h-screen",
+            publishedPost.length > 0 ? "h-auto mt-16 mb-8" : "h-screen",
           ].join(" ")}
         >
           <div class="max-w-screen-sm h-full px-6 mx-auto flex flex-col items-center justify-center">
