@@ -3,7 +3,7 @@ import blog, { redirects } from "./src/blog.tsx";
 blog({
   title: "Mathieu Lava",
   author: "Mathieu Lava",
-  avatar: "./img/0003.webp",
+  avatar: "./img/0006.webp",
   avatarClass: "rounded-xl",
   links: [
     { title: "Email", url: "mailto:mathieu@loak.studio" },
