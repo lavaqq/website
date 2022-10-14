@@ -1,0 +1,64 @@
+---
+import "../styles/app.css";
+const metatags = {
+	title: "Mathieu Lava",
+	description:
+		"Je suis développeur web full-stack (JS & PHP) dans la région de Tournai, en Belgique.",
+	link: "https://mlava.dev",
+	image: "https://mlava.dev/og-image.png",
+};
+---
+
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="shortcut icon" href="/favicon.svg" type="image/x-icon" />
+		<title>{metatags.title}</title>
+		<meta name="description" content={metatags.description} />
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={metatags.link} />
+		<meta property="og:title" content={metatags.title} />
+		<meta property="og:description" content={metatags.description} />
+		<meta property="og:image" content={metatags.image} />
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={metatags.link} />
+		<meta property="twitter:title" content={metatags.title} />
+		<meta property="twitter:description" content={metatags.description} />
+		<meta property="twitter:image" content={metatags.image} />
+	</head>
+	<body
+		class="max-w-6xl w-full flex justify-center items-center h-screen bg-secondary text-primary font-main"
+	>
+		<main class="px-5 flex flex-col gap-3">
+			<h1
+				class="uppercase font-bold text-2xl inline-flex items-center gap-2"
+			>
+				El tiempo desde la última vez que fumé un cigarrillo
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					class="stroke-current fill-transparent w-10 h-10 mb-2 stroke-[1.5px]"
+					viewBox="0 0 24 24"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				>
+					<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+					<line x1="8" y1="13" x2="8" y2="17"></line>
+					<path d="M16 5v.5a2 2 0 0 0 2 2a2 2 0 0 1 2 2v.5"></path>
+					<line x1="3" y1="3" x2="21" y2="21"></line>
+					<path
+						d="M17 13h3a1 1 0 0 1 1 1v2c0 .28 -.115 .533 -.3 .714m-3.7 .286h-13a1 1 0 0 1 -1 -1v-2a1 1 0 0 1 1 -1h9"
+					></path>
+				</svg>
+			</h1>
+			<p id="timer"></p>
+		</main>
+		<script>
+			import "../scripts/timer.ts";
+		</script>
+	</body>
+</html>
