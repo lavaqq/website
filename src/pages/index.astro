@@ -3,28 +3,44 @@ import "../styles/app.css";
 const metatags = {
 	title: "Mathieu Lava",
 	description:
-		"Soy un desarrollador web full-stack (JS & PHP) en la región de Tournai, Bélgica.",
+		"Je suis développeur web full-stack (PHP & JS) pour loak.studio dans la région de Tournai, Belgique.",
 	link: "https://mlava.dev",
 	image: "https://mlava.dev/og-image.png",
 };
 const projects = [
 	{
-		link: "https://github.com/loak-studio/la-folklorique",
+		link: "https://lafolklorique.be/",
 		name: "loak-studio/la-folklorique",
 	},
 	{
-		link: "https://github.com/loak-studio/galandtristan",
-		name: "loak-studio/galandtristan",
+		link: "https://zebatuca.be/",
+		name: "loak-studio/zebatuca",
 	},
 	{
-		link: "https://github.com/lavaqq/mlava.dev",
+		link: "https://dealview.be/",
+		name: "loak-studio/dealview",
+	},
+	{
+		link: "https://anro-magazine.com/",
+		name: "loak-studio/anró",
+	},
+	{
+		link: "https://saveurbelge.com/",
+		name: "loak-studio/saveur-belge",
+	},
+	{
+		link: "https://galandtristan.be/",
+		name: "lavaqq/galand-tristan",
+	},
+	{
+		link: "https://mlava.dev/",
 		name: "lavaqq/mlava.dev",
 	},
 ];
 ---
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="fr">
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -46,22 +62,20 @@ const projects = [
 		<meta property="twitter:image" content={metatags.image} />
 	</head>
 	<body
-		class="max-w-6xl w-full mx-auto flex justify-start items-center h-screen bg-secondary text-primary font-main"
+		class="max-w-6xl w-full mx-auto flex justify-start items-center min-h-screen bg-secondary text-primary font-main"
 	>
 		<main class="px-5 flex flex-col gap-5">
 			<div class="flex flex-col gap-3">
 				<h1 class="uppercase font-bold text-6xl">Mathieu Lava</h1>
 				<p>
-					Soy un desarrollador web full-stack (JS & PHP) para <a
+					Je suis développeur web full-stack (PHP & JS) pour <a
 						href="https://loak.studio"
 						class="underline hover:no-underline">loak.studio</a
-					> en la región de Tournai, Bélgica.
+					> dans la région de Tournai, Belgique.
 				</p>
 			</div>
 			<div class="flex flex-col gap-3">
-				<h2 class="uppercase font-bold text-2xl">
-					mis/nuestros proyectos
-				</h2>
+				<h2 class="uppercase font-bold text-2xl">projets</h2>
 				<ul class="flex flex-col gap-2">
 					{
 						projects.map((project) => (
