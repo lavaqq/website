@@ -1,0 +1,41 @@
+---
+const {
+    metatags = [
+        { title: "My Title" },
+        { description: "My Description" },
+        { url: Astro.url },
+        { image: "https://placehold.co/600x400" },
+    ],
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- Primary Meta Tags -->
+        <title>{metatags.title}</title>
+        <meta name="title" content={metatags.title} />
+        <meta name="description" content={metatags.description} />
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={metatags.url} />
+        <meta property="og:title" content={metatags.title} />
+        <meta property="og:description" content={metatags.description} />
+        <meta property="og:image" content={metatags.image} />
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={metatags.url} />
+        <meta property="twitter:title" content={metatags.title} />
+        <meta property="twitter:description" content={metatags.description} />
+        <meta property="twitter:image" content={metatags.image} />
+    </head>
+    <body>
+        <slot />
+    </body>
+</html>
