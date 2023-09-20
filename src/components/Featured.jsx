@@ -22,11 +22,11 @@ const Carousel = ({ data }) => {
         if (autoChangeTimer) {
             clearTimeout(autoChangeTimer);
         }
-        setAutoChangeTimer(setTimeout(goToNextSlide, 5000));
+        setAutoChangeTimer(setTimeout(goToNextSlide, 4000));
     };
 
     useEffect(() => {
-        setAutoChangeTimer(setTimeout(goToNextSlide, 5000));
+        setAutoChangeTimer(setTimeout(goToNextSlide, 4000));
 
         return () => {
             if (autoChangeTimer) {
