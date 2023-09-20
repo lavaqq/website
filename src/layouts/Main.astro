@@ -1,0 +1,40 @@
+---
+const { title, description } = Astro.props;
+const image = ""
+import Header from "../components/layouts/Header.astro";
+import.meta.glob("../css/*.css");
+import.meta.glob("../css/components/*.css");
+import.meta.glob("../css/pages/*.css");
+import.meta.glob("../css/layouts/*.css");
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <title>Lava Mathieu - {title}</title>
+        <meta name="title" content={"Lava Mathieu - " + title} />
+        <meta name="description" content={description} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={Astro.url} />
+        <meta property="og:title" content={"Lava Mathieu - " + title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={image} />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={Astro.url} />
+        <meta property="twitter:title" content={"Lava Mathieu - " + title} />
+        <meta property="twitter:description" content={description} />
+        <meta property="twitter:image" content="https://metatags.io/images/meta-tags.png" />
+    </head>
+    <body>
+        <Header />
+        <main>
+            <slot />
+        </main>
+    </body>
+</html>
