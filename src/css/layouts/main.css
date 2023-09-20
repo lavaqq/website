@@ -10,22 +10,10 @@ main {
     margin: 0 40px;
 }
 
-@media only screen and (min-width: 1380px) {
+@media only screen and (min-width: 768px) {
     main {
-        display: flex;
-        flex-direction: column;
         justify-content: center;
         flex-grow: 1;
         margin: 0 60px;
-    }
-}
-
-@media only screen and (max-width: 767px) {
-    main {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        flex-grow: 1;
-        margin: 0 40px;
     }
 }
