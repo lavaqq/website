@@ -2,11 +2,11 @@
 const links = [
     {
         title: "Projects",
-        link: "/projects",
+        href: "/projects",
     },
     {
-        title: "Experience",
-        link: "/experience",
+        title: "About",
+        href: "/about",
     },
 ];
 ---
@@ -15,12 +15,11 @@ const links = [
     <a href="/">Lava</a>
     <nav>
         <ul class="header__menu">
-            <li class="header__link--hover">
-                <a class="header__menu-link" href="/projects">Projects</a>
-            </li>
-            <li class="header__link--hover">
-                <a class="header__menu-link" href="/experience">Experience</a>
-            </li>
+             {links.map((link) => (
+                <li class="header__link--hover">
+                    <a class="header__menu-link" href={link.href}>{link.title}</a>
+                </li>
+            ))}
         </ul>
     </nav>
     <a
