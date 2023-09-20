@@ -1,16 +1,56 @@
 ---
+import Main from "../layouts/Main.astro";
+import Featured from "../components/Featured.jsx";
 
+const featuredData = [
+	{
+		'src':"https://placehold.co/1000",
+		'href':"https://github.com/lavaqq"
+	},
+	{
+		'src':"https://placehold.co/2000",
+		'href':"https://github.com/lavaqq"
+	},
+	{
+		'src':"https://placehold.co/3000",
+		'href':"https://github.com/lavaqq"
+	},
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Main title="Home">
+	<div class="hero-container">
+		<div class="hero">
+			<h1 class="hero__title">Lava Mathieu <br /> web developer</h1>
+			<div class="hero__descriptions">
+				<h2 class="hero__description">
+					Full-Stack JS/PHP developer based in Tournai.
+				</h2>
+				<h2 class="hero__description">
+					Explore the web projects I've worked on, my UNIX rice and
+					other oddities.
+				</h2>
+			</div>
+			<div class="hero__contact">
+				<a class="hero__contact-btn" href="hello@lavam.dev">
+					hello@lavam.dev
+				</a>
+				<div class="hero__contact-socials">
+					<a class="hero__contact-btn--mobile hero__contact-social--hover" href="hello@lavam.dev">
+						Email
+					</a>
+					<a
+						class="hero__contact-social hero__contact-social--hover"
+						href="https://github.com/lavaqq">Github</a
+					>
+					<a
+						class="hero__contact-social hero__contact-social--hover"
+						href="https://www.linkedin.com/in/mathieulava/"
+						>Linkedin</a
+					>
+				</div>
+			</div>
+		</div>
+		<Featured data={featuredData} client:load />
+	</div>
+</Main>
