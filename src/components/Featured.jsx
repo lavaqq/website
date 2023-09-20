@@ -36,7 +36,7 @@ const Carousel = ({ data }) => {
     }, []);
 
     return (
-        <>
+        <div className='featured-container'>
             <p className="featured__title">(featured work)</p>
             <div className="featured">
                 <button className="featured__control" onClick={goToPrevSlide}>
@@ -53,7 +53,7 @@ const Carousel = ({ data }) => {
                     →
                 </button>
             </div>
-        </>
+        </div>
     );
 };
 
