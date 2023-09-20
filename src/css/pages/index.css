@@ -17,6 +17,10 @@
     overflow: hidden;
 }
 
+.hero__title-container {
+    overflow: hidden;
+}
+
 .hero__descriptions {
     display: flex;
     flex-direction: column;
@@ -40,16 +44,11 @@
 
 .hero__contact-btn {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 16px;
-    border: 1px solid #000000;
-    border-radius: 70px;
-    overflow: hidden;
+    margin-bottom: 3px;
 }
 
 .hero__contact-socials {
+    padding-bottom: 3px;
     display: flex;
     gap: 32px;
 }
@@ -94,6 +93,7 @@
 }
 
 @media only screen and (max-width: 767px) {
+
     .hero,
     .hero-container {
         gap: 32px;
