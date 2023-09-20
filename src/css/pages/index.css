@@ -46,13 +46,7 @@
     padding: 16px;
     border: 1px solid #000000;
     border-radius: 70px;
-    transition: background 0.3s linear;
     overflow: hidden;
-}
-
-.hero__contact-btn:hover {
-    background-color: #000000;
-    color: #fff;
 }
 
 .hero__contact-socials {
