@@ -1,0 +1,29 @@
+---
+import Main from "../layouts/Main.astro";
+---
+
+<Main title="Projects">
+    <div class="wip-container">
+        <h1 class="wip">WIP</h1>
+    </div>
+</Main>
+
+<style scoped>
+    .wip-container {
+        overflow: hidden;
+    }
+
+    .wip {
+        text-align: center;
+    }
+</style>
+
+<script>
+    import { gsap } from "gsap";
+
+    gsap.to(".wip", {
+        y: 0,
+        delay: 0.1,
+        duration: 0.1,
+    })
+</script>

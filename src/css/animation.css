@@ -1,0 +1,33 @@
+.hero__title-name,
+.hero__title-work,
+.wip {
+    transform: translateY(100px);
+    transition: transform .5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.hero__descriptions {
+    opacity: 0;
+}
+
+.hero__contact-btn,
+.hero__contact-socials {
+    transform: translateY(100px);
+    transition: transform .5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.featured-container {
+    overflow: hidden;
+}
+
+.featured {
+    transform: translateX(-500px);
+    transition: transform .5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+@media only screen and (max-width: 1380px) {
+    .featured,.featured__title  {
+        transform: translateY(800px);
+        transition: transform .5s cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
+    
+}
