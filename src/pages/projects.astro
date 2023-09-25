@@ -57,23 +57,24 @@ const projects = [
 </Main>
 
 <script>
-  import { gsap } from "gsap";
+import { gsap } from "gsap";
 
-  gsap.to(".projects__title", {
-    y: 0,
-    delay: 0,
-    duration: 0.1,
-  });
+const timeline = gsap.timeline();
 
-  gsap.to(".projects__text", {
-    y: 0,
-    delay: 0.2,
-    duration: 0.1,
-  });
+timeline.to(".projects__title", {
+  y: 0,
+  delay: 0,
+  duration: 0.1,
+})
+.to(".projects__text", {
+  y: 0,
+  delay: 0.1,
+  duration: 0.1,
+})
+.to(".projects__list-item", {
+  y: 0,
+  delay: 0.2,
+  duration: 0.1,
+});
 
-  gsap.to(".projects__list-item", {
-    y: 0,
-    delay: 0.5,
-    duration: 0.1,
-  });
 </script>

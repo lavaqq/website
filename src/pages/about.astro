@@ -46,35 +46,19 @@ import Main from "../layouts/Main.astro";
 </Main>
 
 <script>
-  import { gsap } from "gsap";
+import { gsap } from "gsap";
 
-  gsap.to(".about__title", {
-    y: 0,
-    delay: 0,
-    duration: 0.1,
-  });
+const timeline = gsap.timeline();
 
-  gsap.to("#about-text-1", {
-    y: 0,
-    duration: 0.1,
-    delay: 0.1,
-  });
+timeline.to(".about__title", {
+  y: 0,
+  delay: 0,
+  duration: 0.1,
+})
+.to("#about-text-1, #about-text-2, #about-text-3, #about-text-4", {
+  y: 0,
+  duration: 0.1,
+  stagger: 0.2,
+});
 
-  gsap.to("#about-text-2", {
-    y: 0,
-    duration: 0.1,
-    delay: 0.2,
-  });
-
-  gsap.to("#about-text-3", {
-    y: 0,
-    duration: 0.1,
-    delay: 0.4,
-  });
-
-  gsap.to("#about-text-4", {
-    y: 0,
-    duration: 0.1,
-    delay: 0.6,
-  });
 </script>
