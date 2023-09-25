@@ -1,29 +1,114 @@
 ---
 import Main from "../layouts/Main.astro";
+
+const projects = [
+  {
+    title: "Hypo-Crédit",
+    href: "https://hypo-credit.be/",
+  },
+  {
+    title: "REDSYSTEM",
+    href: "https://redsystem.io/",
+  },
+  {
+    title: "La Folklorique",
+    href: "https://lafolklorique.be/",
+  },
+  {
+    title: "BOTALYS",
+    href: "botalys.com",
+  },
+  {
+    title: "VEIGA MANAGEMENT",
+    href: "veiga-management.com",
+  },
+  {
+    title: "L'Atelier du Carreleur",
+    href: "atelier-du-carreleur.com",
+  },
+];
 ---
 
 <Main title="Projects">
-    <div class="wip-container">
-        <h1 class="wip">WIP</h1>
+  <div class="projects">
+    <div class="projects__title-container">
+      <h1 class="projects__title">projects</h1>
     </div>
+    <div class="projects__texts">
+      <p id="projects-text-1" class="projects__text">
+        While this page still under development, here's a sneak peek at some of
+        the exciting web ventures I've been developing on :
+      </p>
+      <ul class="projects__list">
+        {
+          projects.map((project, index) => (
+            <li class={`projects__list-item projects__list-item--${index}`}>
+              <a class="" href={project.href}>
+                {project.title}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
 </Main>
 
-<style scoped>
-    .wip-container {
-        overflow: hidden;
-    }
-
-    .wip {
-        text-align: center;
-    }
-</style>
-
 <script>
-    import { gsap } from "gsap";
+  import { gsap } from "gsap";
 
-    gsap.to(".wip", {
-        y: 0,
-        delay: 0.1,
-        duration: 0.1,
-    })
+  gsap.to(".projects__title", {
+    y: 0,
+    delay: 0,
+    duration: 0.1,
+  });
+
+  gsap.to("#projects-text-1", {
+    opacity: 1,
+    duration: 0.8,
+    delay: 0.4,
+    ease: "ease-in-out",
+  });
+
+  gsap.to(".projects__list-item--0", {
+    opacity: 1,
+    duration: 0.8,
+    delay: 0.6,
+    ease: "ease-in-out",
+  });
+
+  gsap.to(".projects__list-item--1", {
+    opacity: 1,
+    duration: 0.8,
+    delay: 0.8,
+    ease: "ease-in-out",
+  });
+
+  gsap.to(".projects__list-item--2", {
+    opacity: 1,
+    duration: 0.8,
+    delay: 1,
+    ease: "ease-in-out",
+  });
+
+  gsap.to(".projects__list-item--3", {
+    opacity: 1,
+    duration: 0.8,
+    delay: 1.2,
+    ease: "ease-in-out",
+  });
+
+  gsap.to(".projects__list-item--4", {
+    opacity: 1,
+    duration: 0.8,
+    delay: 1.4,
+    ease: "ease-in-out",
+  });
+
+  gsap.to(".projects__list-item--5", {
+    opacity: 1,
+    duration: 0.8,
+    delay: 1.6,
+    ease: "ease-in-out",
+  });
 </script>
