@@ -2,6 +2,7 @@
 .hero__title-work {
   transform: translateY(100px);
   transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+  will-change: transform;
 }
 
 .about__title,
@@ -11,6 +12,7 @@
 .projects__text {
   transform: translateY(200px);
   transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+  will-change: transform;
 }
 
 .hero__descriptions,
@@ -24,6 +26,7 @@
 .hero__contact-socials {
   transform: translateY(100px);
   transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+  will-change: transform;
 }
 
 .featured-container {
@@ -33,6 +36,7 @@
 .featured {
   transform: translateX(-500px);
   transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+  will-change: transform;
 }
 
 @media only screen and (max-width: 1380px) {
@@ -40,6 +44,7 @@
   .featured__title {
     transform: translateY(800px);
     transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+    will-change: transform;
   }
 }
 
