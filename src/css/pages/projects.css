@@ -1,0 +1,39 @@
+.projects {
+    margin: 0 auto;
+  }
+
+  .projects__title-container {
+    overflow: hidden;
+  }
+
+  .projects__title {
+    margin-bottom: 48px;
+  }
+
+  .projects__texts {
+    text-align: justify;
+    max-width: 64ch;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .projects__text {
+    opacity: 0;
+  }
+
+  .projects__list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .projects__list-item {
+    opacity: 0;
+  }
+
+  @media only screen and (max-width: 767px) {
+    .projects__title {
+      margin-bottom: 32px;
+    }
+  }
