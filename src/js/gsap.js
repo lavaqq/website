@@ -61,26 +61,3 @@ function triggerGSAPAnimation() {
 
 triggerGSAPAnimation();
 window.addEventListener("resize", triggerGSAPAnimation);
-
-
-
-const projectTimeline = gsap.timeline();
-
-projectTimeline.to(".projects__title", {
-  y: 0,
-  delay: 0,
-  duration: 0.1,
-  onComplete: () => {
-    console.log('Animation .projects__title completed');
-  },
-})
-.to(".projects__text", {
-  y: 0,
-  delay: 0.1,
-  duration: 0.1,
-})
-.to(".projects__list-item", {
-  y: 0,
-  delay: 0.2,
-  duration: 0.1,
-});

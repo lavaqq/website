@@ -6,19 +6,14 @@
 }
 
 .about__title,
-.projects__title,
-.about__text,
-.projects__list-item,
-.projects__text {
+.about__text {
   transform: translateY(200px);
   transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
   will-change: transform;
 }
 
 .hero__descriptions,
-.about__text-wrapper,
-.projects__list,
-.projects__text-wrapper {
+.about__text-wrapper {
   overflow: hidden;
 }
 
