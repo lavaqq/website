@@ -26,6 +26,10 @@ p {
   font-weight: 500;
 }
 
+h1,h2, p,a {
+  will-change: transform;
+}
+
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
   h1 {
     font-size: 4.5rem;
