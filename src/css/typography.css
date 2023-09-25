@@ -26,7 +26,10 @@ p {
   font-weight: 500;
 }
 
-h1,h2, p,a {
+h1,
+h2,
+p,
+a {
   will-change: transform;
 }
 
