@@ -5,15 +5,7 @@
   will-change: transform;
 }
 
-.about__title,
-.about__text {
-  transform: translateY(200px);
-  transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
-  will-change: transform;
-}
-
-.hero__descriptions,
-.about__text-wrapper {
+.hero__descriptions {
   overflow: hidden;
 }
 
@@ -57,4 +49,5 @@
   max-width: 100%;
   height: auto;
   animation: fadeIn 0.5s ease-in-out;
+  will-change: opacity;
 }

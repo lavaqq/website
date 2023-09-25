@@ -1,18 +1,5 @@
 import { gsap } from "gsap";
 
-const aboutTimeline = gsap.timeline();
-
-aboutTimeline.to(".about__title", {
-  y: 0,
-  delay: 0,
-  duration: 0.1,
-})
-.to("#about-text-1, #about-text-2, #about-text-3, #about-text-4", {
-  y: 0,
-  duration: 0.1,
-  stagger: 0.2,
-});
-
 function triggerGSAPAnimation() {
   const screenWidth = window.innerWidth;
   const commonAnimations = [

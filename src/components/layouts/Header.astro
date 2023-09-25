@@ -1,23 +1,6 @@
----
-const links = [
-    {
-        title: "About",
-        href: "/about",
-    },
-];
----
 
 <header class="header">
     <a href="/">Lava</a>
-    <nav>
-        <ul class="header__menu">
-             {links.map((link) => (
-                <li class="header__link--hover">
-                    <a class="header__menu-link" href={link.href}>{link.title}</a>
-                </li>
-            ))}
-        </ul>
-    </nav>
     <a
         class="header__contact-link header__link--hover"
         href="mailto:hello@lavam.dev">hello@lavam.dev</a
