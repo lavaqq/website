@@ -1,33 +1,54 @@
 .hero__title-name,
-.hero__title-work,
-.wip {
-    transform: translateY(100px);
-    transition: transform .5s cubic-bezier(0.25, 0.1, 0.25, 1);
+.hero__title-work {
+  transform: translateY(100px);
+  transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.about__title,
+.projects__title {
+  transform: translateY(200px);
+  transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 .hero__descriptions {
-    opacity: 0;
+  opacity: 0;
 }
 
 .hero__contact-btn,
 .hero__contact-socials {
-    transform: translateY(100px);
-    transition: transform .5s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transform: translateY(100px);
+  transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 .featured-container {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .featured {
-    transform: translateX(-500px);
-    transition: transform .5s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transform: translateX(-500px);
+  transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 @media only screen and (max-width: 1380px) {
-    .featured,.featured__title  {
-        transform: translateY(800px);
-        transition: transform .5s cubic-bezier(0.25, 0.1, 0.25, 1);
-    }
-    
+  .featured,
+  .featured__title {
+    transform: translateY(800px);
+    transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.featured__image {
+  max-width: 100%;
+  height: auto;
+  animation: fadeIn 0.5s ease-in-out;
 }
