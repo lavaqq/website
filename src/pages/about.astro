@@ -2,28 +2,75 @@
 import Main from "../layouts/Main.astro";
 ---
 
-<Main title="Projects">
-    <div class="wip-container">
-        <h1 class="wip">WIP</h1>
+<Main title="About">
+    <div class="about">
+        <div class="about__title-container">
+            <h1 class="about__title">about</h1>
+        </div>
+        <div class="about__texts">
+            <p id="about-text-1" class="about__text">
+                Hello, I'm Mathieu Lava, and my journey in web development began
+                with a lifelong passion for computers. From dismantling PCs with
+                my uncle to exploring the boundless world of web technology, my
+                love for this field has been a constant.
+            </p>
+            <p id="about-text-2" class="about__text">
+                In February 2022, I stepped into web development as a freelance
+                front-end developer alongside my studies, gaining valuable
+                experience and honing my skills.
+            </p>
+            <p id="about-text-3" class="about__text">
+                As my journey continued, in January 2023, I co-founded
+                loak.studio in pursuit of crafting innovative digital solutions.
+                We had the privilege of collaborating with exceptional companies
+                in the Belgian ecosystem, including Botalys and REDSYSTEM.
+                Together, we created remarkable websites that not only met but
+                exceeded their digital needs and aspirations.
+            </p>
+            <p id="about-text-4" class="about__text">
+                However, as life often takes unexpected turns, I am no longer
+                part of loak.studio since September. But with every challenge
+                comes an opportunity, and I'm now eagerly seeking new horizons
+                to contribute my expertise and passion for web development.
+            </p>
+        </div>
     </div>
 </Main>
-
-<style scoped>
-    .wip-container {
-        overflow: hidden;
-    }
-
-    .wip {
-        text-align: center;
-    }
-</style>
 
 <script>
     import { gsap } from "gsap";
 
-    gsap.to(".wip", {
+    gsap.to(".about__title", {
         y: 0,
-        delay: 0.1,
+        delay: 0,
         duration: 0.1,
-    })
+    });
+
+    gsap.to("#about-text-1", {
+        opacity: 1,
+        duration: 0.8,
+        delay: 0.4,
+        ease: "ease-in-out",
+    });
+
+    gsap.to("#about-text-2", {
+        opacity: 1,
+        duration: 0.8,
+        delay: 0.65,
+        ease: "ease-in-out",
+    });
+
+    gsap.to("#about-text-3", {
+        opacity: 1,
+        duration: 0.8,
+        delay: 0.95,
+        ease: "ease-in-out",
+    });
+
+    gsap.to("#about-text-4", {
+        opacity: 1,
+        duration: 0.8,
+        delay: 1.25,
+        ease: "ease-in-out",
+    });
 </script>
