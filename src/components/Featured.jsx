@@ -52,6 +52,8 @@ const Carousel = ({ data }) => {
             alt="Project image"
             className={`featured__image ${currentIndex === 0 ? "reset" : ""}`}
             key={currentIndex}
+            width="2000"
+            height="2000"
           />
         </a>
         <button className="featured__control" onClick={goToNextSlide}>
