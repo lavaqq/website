@@ -70,6 +70,9 @@ projectTimeline.to(".projects__title", {
   y: 0,
   delay: 0,
   duration: 0.1,
+  onComplete: () => {
+    console.log('Animation .projects__title completed');
+  },
 })
 .to(".projects__text", {
   y: 0,
