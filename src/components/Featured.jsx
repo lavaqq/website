@@ -26,6 +26,11 @@ const Carousel = ({ data }) => {
   };
 
   useEffect(() => {
+    data.forEach((item) => {
+      const img = new Image();
+      img.src = item.png;
+    });
+
     setAutoChangeTimer(setTimeout(goToNextSlide, 6000));
 
     return () => {
