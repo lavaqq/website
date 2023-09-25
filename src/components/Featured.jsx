@@ -28,7 +28,7 @@ const Carousel = ({ data }) => {
   useEffect(() => {
     data.forEach((item) => {
       const img = new Image();
-      img.src = item.png;
+      img.src = item.src;
     });
 
     setAutoChangeTimer(setTimeout(goToNextSlide, 6000));
@@ -53,7 +53,7 @@ const Carousel = ({ data }) => {
           target="_blank"
         >
           <img
-            src={data[currentIndex].png}
+            src={data[currentIndex].src}
             alt="Project image"
             className={`featured__image ${currentIndex === 0 ? "reset" : ""}`}
             key={currentIndex}
