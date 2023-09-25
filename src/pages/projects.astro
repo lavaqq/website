@@ -16,15 +16,15 @@ const projects = [
   },
   {
     title: "BOTALYS",
-    href: "botalys.com",
+    href: "https://botalys.com",
   },
   {
     title: "VEIGA MANAGEMENT",
-    href: "veiga-management.com",
+    href: "https://veiga-management.com",
   },
   {
     title: "L'Atelier du Carreleur",
-    href: "atelier-du-carreleur.com",
+    href: "https://atelier-du-carreleur.com",
   },
 ];
 ---
@@ -35,15 +35,17 @@ const projects = [
       <h1 class="projects__title">projects</h1>
     </div>
     <div class="projects__texts">
-      <p id="projects-text-1" class="projects__text">
-        While this page still under development, here's a sneak peek at some of
-        the exciting web ventures I've been developing on :
-      </p>
+      <div class="projects__text-wrapper">
+        <p class="projects__text">
+          While this page still under development, here's a sneak peek at some
+          of the exciting web ventures I've been developing on :
+        </p>
+      </div>
       <ul class="projects__list">
         {
-          projects.map((project, index) => (
-            <li class={`projects__list-item projects__list-item--${index}`}>
-              <a class="" href={project.href}>
+          projects.map((project) => (
+            <li class="projects__list-item">
+              <a href={project.href} target="_blank">
                 {project.title}
               </a>
             </li>
@@ -63,52 +65,15 @@ const projects = [
     duration: 0.1,
   });
 
-  gsap.to("#projects-text-1", {
-    opacity: 1,
-    duration: 0.8,
-    delay: 0.4,
-    ease: "ease-in-out",
+  gsap.to(".projects__text", {
+    y: 0,
+    delay: 0.2,
+    duration: 0.1,
   });
 
-  gsap.to(".projects__list-item--0", {
-    opacity: 1,
-    duration: 0.8,
-    delay: 0.6,
-    ease: "ease-in-out",
-  });
-
-  gsap.to(".projects__list-item--1", {
-    opacity: 1,
-    duration: 0.8,
-    delay: 0.8,
-    ease: "ease-in-out",
-  });
-
-  gsap.to(".projects__list-item--2", {
-    opacity: 1,
-    duration: 0.8,
-    delay: 1,
-    ease: "ease-in-out",
-  });
-
-  gsap.to(".projects__list-item--3", {
-    opacity: 1,
-    duration: 0.8,
-    delay: 1.2,
-    ease: "ease-in-out",
-  });
-
-  gsap.to(".projects__list-item--4", {
-    opacity: 1,
-    duration: 0.8,
-    delay: 1.4,
-    ease: "ease-in-out",
-  });
-
-  gsap.to(".projects__list-item--5", {
-    opacity: 1,
-    duration: 0.8,
-    delay: 1.6,
-    ease: "ease-in-out",
+  gsap.to(".projects__list-item", {
+    y: 0,
+    delay: 0.5,
+    duration: 0.1,
   });
 </script>

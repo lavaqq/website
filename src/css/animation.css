@@ -5,13 +5,20 @@
 }
 
 .about__title,
-.projects__title {
+.projects__title,
+.about__text,
+.projects__list-item,
+.projects__text {
   transform: translateY(200px);
   transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
-.hero__descriptions {
-  opacity: 0;
+
+.hero__descriptions,
+.about__text-wrapper,
+.projects__list,
+.projects__text-wrapper {
+  overflow: hidden;
 }
 
 .hero__contact-btn,

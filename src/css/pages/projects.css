@@ -17,19 +17,10 @@
   flex-direction: column;
   gap: 32px;
 }
-
-.projects__text {
-  opacity: 0;
-}
-
 .projects__list {
   display: flex;
   flex-direction: column;
   gap: 4px;
-}
-
-.projects__list-item {
-  opacity: 0;
 }
 
 @media only screen and (max-width: 767px) {
