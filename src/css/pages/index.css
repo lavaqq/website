@@ -1,111 +1,110 @@
 .hero-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    max-height: 500px;
-    width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-height: 500px;
+  width: 100%;
 }
 
 .hero {
-    display: flex;
-    flex-direction: column;
-    gap: 48px;
-    max-width: 830px;
-    width: 100%;
-    justify-content: flex-start;
-    align-items: flex-start;
-    overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  max-width: 830px;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+  overflow: hidden;
 }
 
 .hero__title-container {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .hero__descriptions {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    max-width: 960px;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 960px;
+  width: 100%;
 }
 
 .hero__description {
-    width: 100%;
+  width: 100%;
 }
 
 .hero__contact {
-    max-width: 960px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 32px;
+  max-width: 960px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
 }
 
 .hero__contact-btn {
-    display: flex;
-    margin-bottom: 3px;
+  display: flex;
+  margin-bottom: 3px;
 }
 
 .hero__contact-socials {
-    padding-bottom: 3px;
-    display: flex;
-    gap: 32px;
+  padding-bottom: 3px;
+  display: flex;
+  gap: 32px;
 }
 
 .hero__contact-social--hover {
-    position: relative;
+  position: relative;
 }
 
 .hero__contact-social--hover::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0);
-    height: 2px;
-    bottom: -3px;
-    left: 0;
-    background-color: #000000;
-    transform-origin: bottom right;
-    transition: transform 0.25s ease-out;
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -3px;
+  left: 0;
+  background-color: #000000;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
 }
 
 .hero__contact-social--hover:hover::after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
 
 .hero__contact-btn--mobile {
-    display: none;
+  display: none;
 }
 
 @media only screen and (max-width: 1380px) {
-    .hero {
-        margin-top: 16px;
-        gap: 48px;
-    }
+  .hero {
+    margin-top: 16px;
+    gap: 48px;
+  }
 
-    .hero-container {
-        flex-direction: column;
-        gap: 48px;
-        max-height: initial;
-    }
+  .hero-container {
+    flex-direction: column;
+    gap: 48px;
+    max-height: initial;
+  }
 }
 
 @media only screen and (max-width: 767px) {
-
-    .hero,
-    .hero-container {
-        gap: 32px;
-    }
+  .hero,
+  .hero-container {
+    gap: 32px;
+  }
 }
 
 @media only screen and (max-width: 427px) {
-    .hero__contact-btn {
-        display: none;
-    }
+  .hero__contact-btn {
+    display: none;
+  }
 
-    .hero__contact-btn--mobile {
-        display: block;
-    }
+  .hero__contact-btn--mobile {
+    display: block;
+  }
 }

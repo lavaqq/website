@@ -1,21 +1,21 @@
 body {
-    display: flex;
-    margin: 0 auto;
-    flex-direction: column;
-    min-height: 100vh;
-    max-width: 1470px;
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: 1470px;
 }
 
 main {
-    display: flex;
-    flex-direction: column;
-    margin: 0 40px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 40px;
 }
 
 @media only screen and (min-width: 768px) {
-    main {
-        justify-content: center;
-        flex-grow: 1;
-        margin: 0 60px;
-    }
+  main {
+    justify-content: center;
+    flex-grow: 1;
+    margin: 0 60px;
+  }
 }

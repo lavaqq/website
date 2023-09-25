@@ -1,49 +1,50 @@
 body {
-    font-family: "Inter", sans-serif;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    color: #000000;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  color: #000000;
 }
 
 h1 {
-    font-size: 6.5rem;
-    font-weight: 700;
-    letter-spacing: -0.25rem;
-    line-height: 0.9;
-    text-transform: uppercase;
+  font-size: 6.5rem;
+  font-weight: 700;
+  letter-spacing: -0.25rem;
+  line-height: 0.9;
+  text-transform: uppercase;
 }
 
 h2 {
-    font-size: 2.5rem;
-    font-weight: 500;
-    letter-spacing: -1.3px;
+  font-size: 2.5rem;
+  font-weight: 500;
+  letter-spacing: -1.3px;
 }
 
-a, p {
-    font-size: 1rem;
-    font-weight: 500;
+a,
+p {
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
-    h1 {
-        font-size: 4.5rem;
-    }
+  h1 {
+    font-size: 4.5rem;
+  }
 
-    h2 {
-        font-size: 2rem;
-    }
+  h2 {
+    font-size: 2rem;
+  }
 }
 
 @media only screen and (max-width: 767px) {
-    h1 {
-        font-size: 2.25rem;
-        line-height: 1;
-        letter-spacing: -0.115rem;
-    }
+  h1 {
+    font-size: 2.25rem;
+    line-height: 1;
+    letter-spacing: -0.115rem;
+  }
 
-    h2 {
-        font-size: 1.5rem;
-        letter-spacing: -0.05rem;
-    }
+  h2 {
+    font-size: 1.5rem;
+    letter-spacing: -0.05rem;
+  }
 }

@@ -1,43 +1,43 @@
 .header {
-    display: flex;
-    justify-content: space-between;
-    margin: 25px 65px;
+  display: flex;
+  justify-content: space-between;
+  margin: 25px 65px;
 }
 
 .header__menu {
-    display: flex;
-    gap: 24px;
+  display: flex;
+  gap: 24px;
 }
 
 .header__link--hover {
-    position: relative;
-    cursor: pointer;
+  position: relative;
+  cursor: pointer;
 }
 
 .header__link--hover::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0);
-    height: 2px;
-    bottom: -3px;
-    left: 0;
-    background-color: #000000;
-    transform-origin: bottom right;
-    transition: transform 0.25s ease-out;
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -3px;
+  left: 0;
+  background-color: #000000;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
 }
 
 .header__link--hover:hover::after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
 
 @media only screen and (max-width: 767px) {
-    .header__contact-link {
-        display: none;
-    }
+  .header__contact-link {
+    display: none;
+  }
 
-    .header {
-        margin: 25px 40px;
-    }
+  .header {
+    margin: 25px 40px;
+  }
 }
