@@ -1,15 +1,8 @@
 import { gsap } from "gsap";
 
-function resetElements() {
-  gsap.set(
-    ".hero__title-name, .hero__title-work, .hero__descriptions .hero__description, .hero__contact-btn, .hero__contact-socials, .featured, .featured__title",
-    { clearProps: "all" },
-  );
-}
+let animationTriggered = false;
 
 function triggerGSAPAnimation() {
-  resetElements();
-
   const screenWidth = window.innerWidth;
   const commonAnimations = [
     gsap.to(".hero__title-name", {
@@ -36,13 +29,14 @@ function triggerGSAPAnimation() {
     }),
   ];
 
+  // Additional animations based on screen width
   if (screenWidth <= 1380) {
     commonAnimations.push(
       gsap.to(".featured, .featured__title", {
         y: 0,
         delay: 0.6,
         duration: 0.4,
-      }),
+      })
     );
   } else {
     commonAnimations.push(
@@ -50,13 +44,19 @@ function triggerGSAPAnimation() {
         x: 0,
         delay: 0.8,
         duration: 0.4,
-      }),
+      })
     );
   }
 
   gsap.timeline().add(commonAnimations);
+
+  animationTriggered = true;
 }
 
 triggerGSAPAnimation();
 
-window.addEventListener("resize", triggerGSAPAnimation);
+window.addEventListener("scroll", function() {
+  if (!animationTriggered && window.innerWidth <= 768) {
+    triggerGSAPAnimation();
+  }
+});
