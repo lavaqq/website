@@ -1,6 +1,15 @@
 import { gsap } from "gsap";
 
+function resetElements() {
+  gsap.set(
+    ".hero__title-name, .hero__title-work, .hero__descriptions .hero__description, .hero__contact-btn, .hero__contact-socials, .featured, .featured__title",
+    { clearProps: "all" },
+  );
+}
+
 function triggerGSAPAnimation() {
+  resetElements();
+
   const screenWidth = window.innerWidth;
   const commonAnimations = [
     gsap.to(".hero__title-name", {
@@ -26,13 +35,14 @@ function triggerGSAPAnimation() {
       duration: 0.1,
     }),
   ];
+
   if (screenWidth <= 1380) {
     commonAnimations.push(
-      gsap.to(".featured,.featured__title", {
+      gsap.to(".featured, .featured__title", {
         y: 0,
         delay: 0.6,
         duration: 0.4,
-      })
+      }),
     );
   } else {
     commonAnimations.push(
@@ -40,11 +50,13 @@ function triggerGSAPAnimation() {
         x: 0,
         delay: 0.8,
         duration: 0.4,
-      })
+      }),
     );
   }
+
   gsap.timeline().add(commonAnimations);
 }
 
 triggerGSAPAnimation();
+
 window.addEventListener("resize", triggerGSAPAnimation);
